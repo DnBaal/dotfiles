@@ -1,0 +1,49 @@
+# Dynamic theme colors
+# config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
+background-blur = false
+background-opacity = 1
+background = 000000
+theme = Black Metal (Bathory)
+
+
+# Font
+# font-family = "SauceCodePro Nerd Font Mono"
+font-family = "SauceCodePro Nerd Font Mono"
+
+# font-style = Regular
+font-style = Medium
+font-size = 14
+
+# Window
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink =
+shell-integration-features = no-cursor
+
+# Keyboard bindings
+keybind = f11=toggle_fullscreen
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
+# keybind = ctrl+l=clear_screen
+# keybind = ctrl+shift+h=goto_split:left
+# keybind = ctrl+shift+j=goto_split:bottom
+# keybind = ctrl+shift+k=goto_split:top
+# keybind = ctrl+shift+l=goto_split:right
+
+#  How do i manage this?
+# keybind = ctrl+d=scroll_page_fractional:0.5
+# keybind = ctrl+u=scroll_page_fractional:-0.5
+
+# Slowdown mouse scrolling
+# mouse-scroll-multiplier = 0.95
+mouse-scroll-multiplier = 1.2

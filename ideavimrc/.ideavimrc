@@ -1,0 +1,187 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+
+let mapleader=" "
+set scrolloff=8
+set relativenumber
+set breakindent
+set ignorecase
+set smartcase
+set signcolumn = "yes"
+
+-- Decrease update time
+set updatetime = 250
+
+-- Decrease mapped sequence wait time
+set timeoutlen = 300
+
+-- Configure how new splits should be opened
+set splitright
+set splitbelow
+
+-- Preview substitutions live, as you type
+set inccommand = "split"
+
+set tabstop = 4
+set softtabstop = 4
+set shiftwidth = 4
+set expandtab
+set smartindent
+set termguicolors
+set colorcolumn = "85"
+set signcolumn="yes"
+set wrap
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+
+set clipboard=unnamedplus
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set textobj-entire
+set ReplaceWithRegister
+set ideajoin
+set NERDTree
+set ideamarks
+"set idearefactormode=normal
+
+" LSP
+nmap ga   <Action>(GotoAction)
+map gi   <Action>(GotoImplementation)
+map gd   <Action>(GotoDeclaration)
+nmap gr <Action>(GotoSuperMethod)
+map <Leader>grn <Action>(RenameElement)
+nmap <leader>fs <Action>(FileStructurePopup)
+nmap <leader>rp <Action>(ReplaceInPath)
+"map <leader>fr :action Replace<cr>
+map <leader>sO :action GotoSymbol<cr>
+nmap <leader>fr :action FindUsages<CR>
+nmap gu <Action>(ShowUsages)
+nmap gD :action GotoTypeDeclaration<CR>
+"nmap <leader>hl <Action>(HighlightUsagesInFile)
+"nmap <leader>qp <Action>(QuickPreview)
+"nmap <leader>qd <Action>(QuickDefinition)
+"nmap <leader>qD <Action>(QuickTypeDefinition)
+nmap K :action QuickJavaDoc<CR>
+
+" TELESCOPE
+map <Leader>o   <Action>(ManageRecentProjects)
+"map <Leader>sg <Action>(FindInPath)
+map <leader>sg :action FindInPath<CR>
+nmap <leader>sf :action GotoFile<CR>
+nmap <leader>sr :action RecentFiles<CR>
+nmap <leader>sa :action ShowAllActions<CR>
+map <Leader>ss   <Action>(SearchEverywhere)
+nmap <leader>sh <Action>(LocalHistory.ShowHistory)
+map <leader>snf :action Find<cr>
+"map <leader>fl :action RecentLocations<cr>
+"map <leader>fm :action ShowBookmarks<cr>
+
+" Diagnostics
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+nmap <leader>e <action>(ShowErrorDescription)
+map <Leader>ie   <Action>(ReSharperGotoNextErrorInSolution)
+nmap <space>q :action ActivateProblemsViewToolWindow<CR>
+
+" Tests
+map <Leader>wt <Action>(ActivateUnitTestsToolWindow)
+nmap <leader>rt <Action>(RunTests)
+
+" Debug
+map <leader>b <Action>(Debug)
+map <leader>B <Action>(ToggleLineBreakpoint)
+map <Leader>d   <Action>(ChooseDebugConfiguration)
+"map <Leader>B   <Action>(ViewBreakpoints)
+map <Leader>a   <Action>(XDebugger.AttachToProcess)
+map <Leader>wd <Action>(ActivateDebugToolWindow)
+
+" Miscellaneous
+nmap - :action ActivateProjectToolWindow<CR>
+map <leader>z <Action>(ToggleDistractionFreeMode)
+nmap <leader>fe :NERDTreeToggle<CR>
+map <Leader>wi <Action>(NavigateToImmediateWindow)
+map <Leader>wf <Action>(ActivateStructureToolWindow)
+map <Leader>wp <Action>(ActivatedotTraceProfilerToolWindow)
+map <Leader>wn <Action>(ActivateNuGetToolWindow)
+map <Leader>ww <Action>(HideAllWindows)
+map <Leader>wb <Action>(ViewStatusBar)
+map <leader>wss <Action>(SelectInProjectView)
+map <leader>hh <Action>(Vcs.ShowTabbedFileHistory)
+map <Leader>A   <Action>(Annotate)
+
+" Always use jetbrains jumplist
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
+
+" Comment a line, similar to tpope/vim-commentary
+nmap gcc <Action>(CommentByLineComment)
+vmap gcc <Action>(CommentByLineComment)
+map gcC <Action>(CommentByBlockComment)
+
+" Run
+map <C-'>       <Action>(Run)
+map <Leader>r   <Action>(ChooseRunConfiguration)
+map <Leader>wr <Action>(ActivateRunToolWindow)
+nmap <leader>rc <Action>(ContextRun)
+nmap <leader>rr <Action>(Rerun)
+map <leader>c <Action>(Stop)
+
+" Jump between methods
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" Refactor-Fix actions
+nmap <Leader>ff <Action>(ReformatCode)
+vmap <Leader>ff <Esc>gvhh:<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr><Action>(ReformatCode<C)
+nmap <Leader>fi <Action>(OptimizeImports)
+nmap <Leader>fr <Action>(ChangeTargetFramework)
+nmap , <Action>(ShowIntentionActions)
+map <Leader>wc <Action>(ShowSolutionPropertiesAction)
+map <Leader>\   <Action>(Refactorings.QuickListPopupAction)
+
+"------------------------------!
+
+" extract actions
+map <Leader>xi <Action>(ExtractInterface)
+map <Leader>xs <Action>(ExtractSuperclass)
+map <Leader>xc <Action>(ExtractClass)
+map <Leader>xm <Action>(ExtractMethod)
+
+map <Leader>cv <Action>(IntroduceVariable)
+map <Leader>ci <Action>(Inline)
+map <Leader>cf <Action>(IntroduceField)
+map <Leader>cp <Action>(IntroduceParameter)
+map <Leader>cc <Action>(IntroduceConstant)
+
+
+" https://youtrack.jetbrains.com/issue/VIM-2178/multiple-cursors-defines-incorrect-keys
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+" nmap <C-x> <Plug>SkipOccurrence
+" xmap <C-x> <Plug>SkipOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Note that the default <A-n> and g<A-n> shortcuts don't work on Mac due to dead keys.
+" <A-n> is used to enter accented text e.g. ñ
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
