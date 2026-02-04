@@ -8,8 +8,7 @@ theme = Black Metal (Bathory)
 
 
 # Font
-# font-family = "SauceCodePro Nerd Font Mono"
-font-family = "SauceCodePro Nerd Font Mono"
+font-family = "IosevkaTerm Nerd Font Mono"
 
 # font-style = Regular
 font-style = Medium
