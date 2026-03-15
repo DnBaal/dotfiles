@@ -1,14 +1,14 @@
 # Dynamic theme colors
-# config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
 background-blur = false
 background-opacity = 0.85
 background = 000000
-theme = Black Metal (Bathory)
+# theme = Black Metal (Bathory)
 
 
 # Font
-font-family = "IosevkaTerm Nerd Font Mono"
+font-family = "Iosevka Nerd Font Mono"
 
 # font-style = Regular
 font-style = Medium
@@ -24,6 +24,7 @@ resize-overlay = never
 cursor-style = "block"
 cursor-style-blink =
 shell-integration-features = no-cursor
+cursor-text = cell-background
 
 # Keyboard bindings
 keybind = f11=toggle_fullscreen
@@ -46,3 +47,6 @@ keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 # Slowdown mouse scrolling
 # mouse-scroll-multiplier = 0.95
 mouse-scroll-multiplier = 1.2
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
